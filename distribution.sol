@@ -111,15 +111,15 @@ contract Distribution {
     require(!claimed[_address]);
     uint256 amount = totalTokens * invested[_address] / totalInvested;
     // Check for overflows
-    require(totalTokens + amount > totalTokens);
-    uint256 previousTotalTokens = totalTokens;
-    uint256 previousSendersBalance = TokenContract.balanceOf(msg.sender);
+    // require(totalTokens + amount > totalTokens);
+    // uint256 previousTotalTokens = totalTokens;
+    // uint256 previousSendersBalance = TokenContract.balanceOf(msg.sender);
     TokenContract.transfer(_address, amount);
-    totalTokens -= amount;
+    
     claimed[_address] = true;
     // Asserts are used to use static analysis to find bugs in your code. They should never fail
-    assert(totalTokens + TokenContract.balanceOf(msg.sender) == previousTotalTokens + previousSendersBalance);
-    assert(totalTokens + amount == previousTotalTokens);
+    // assert(totalTokens + TokenContract.balanceOf(msg.sender) == previousTotalTokens + previousSendersBalance);
+    // assert(totalTokens + amount == previousTotalTokens);
   }
 
   /*

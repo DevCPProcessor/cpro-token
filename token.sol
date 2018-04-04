@@ -33,10 +33,10 @@ contract CPro {
     function CPro(
         address distributionContract
     ) public {
-        // Give the creator 70% of all tokens
-        balanceOf[msg.sender] += (totalSupply / 100) * 70;
-        // Give the distribution contract 30% of all tokens
-        balanceOf[distributionContract] += (totalSupply / 100) * 30;
+        // Give the creator 65% of all tokens
+        balanceOf[msg.sender] += (totalSupply / 100) * 65;
+        // Give the distribution contract 35% of all tokens
+        balanceOf[distributionContract] += (totalSupply / 100) * 35;
     }
 
     /**
